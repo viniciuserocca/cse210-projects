@@ -1,3 +1,0 @@
-850
-EternalGoal|Study the Scriptures|Study for at least 10 minutes|50
-ChecklistGoal|Attend the Temple|Attend and perfom any ordenance|550|3|3|500
