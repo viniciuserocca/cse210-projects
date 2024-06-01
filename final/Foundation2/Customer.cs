@@ -7,7 +7,13 @@ class Customer
 
     public Customer (string name, Address address)
     {
-        
+        _name = name;
+        _address = address;
+    }
+
+    public string GetName()
+    {
+        return _name;
     }
 
     public Address GetAddress()
@@ -15,8 +21,14 @@ class Customer
         return _address;
     }
 
-    public void CheckCountry()
+    public double CheckCountry()
     {   
-
+        int shippingCost = 5;
+        bool validation = _address.ValidateCountry(_address);
+        if (validation == false)
+        {
+            shippingCost = 35;
+        }
+        return shippingCost;
     }
 }
