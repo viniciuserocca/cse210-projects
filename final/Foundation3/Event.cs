@@ -7,24 +7,26 @@ class Event
     protected string _date;
     protected string _time;
     protected Address _address;
+    protected string _type;
 
-    public Event ()
+    public Event (string title, string description, string date, string time, Address address)
     {
-
+        _title = title;
+        _description = description;
+        _date = date;
+        _time = time;
+        _address = address;
     }
 
-    public string GetStandardDetails()
-    {
-        return "";
+    public void GetStandardDetails()
+    {   
+        Console.WriteLine($"{_title} - {_description}\n{_date} at {_time}");
+        Console.WriteLine(_address.DisplayAddress());
     }
 
-    public string GetFullDetails()
-    {
-        return "";
-    }
-
-    public string ShortDescription()
-    {
-        return "";
+    public void ShortDescription()
+    {   
+        Console.WriteLine($"{_type} - {_title} - {_date}");
+        Console.WriteLine("=======================================\n");
     }
 }
