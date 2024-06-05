@@ -4,27 +4,25 @@ public abstract class Activity
 {
     protected string _date;
     protected double _minutes;
-    private List<Activity> _activity = new List<Activity>();
+    protected string _name;
 
-    public Activity()
+    public Activity(string date, double minutes)
     {
-
+        _date = date;
+        _minutes = minutes;
     }
     public string GetSummary()
-    {
-        return $"03 Nov 2022 Running (30 min): Distance 4.8 km, Speed: 9.7 kph, Pace: 6.25 min per km";
+    {   
+        double distance = Math.Round(CalculateDistance(), 3);
+        double speed = Math.Round(CalculateSpeed(), 2);
+        double pace = Math.Round(CalculatePace(), 2);
+
+        return $"{_date} {_name} ({_minutes}): Distance {distance} miles, Speed: {speed} mph, Pace: {pace} min per mile";
     }
 
-    public virtual double CalculateDistance()
-    {
-        return 0;
-    }
-    public double CalculateSpeed()
-    {
-        return 0;
-    }
-    public virtual double CalculatePace()
-    {
-        return 0;
-    }
+    public abstract double CalculateDistance();
+
+    public abstract double CalculateSpeed();
+
+    public abstract double CalculatePace();
 }

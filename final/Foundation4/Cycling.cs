@@ -4,18 +4,24 @@ class Cycling : Activity
 {
     private double _speed;
 
-    public Cycling ()
-    {
-
-    }
+    public Cycling (string date, double minutes, double speed) : base (date, minutes)
+    {   
+        _name = "Cycling";
+        _speed = speed;
+    }   
 
     public override double CalculateDistance()
     {
-        return 0;
+        return _speed * (_minutes / 60);
+    }
+
+    public override double CalculateSpeed()
+    {
+        return _speed;
     }
 
     public override double CalculatePace()
     {
-        return 0;
+        return 60 / _speed;
     }
 }
